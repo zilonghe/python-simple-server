@@ -2,7 +2,7 @@ import BaseHTTPServer
 
 
 class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
-    """handler request and return html page"""
+    """handler request and return html page with request info"""
 
     Page = '''\
     <html>
