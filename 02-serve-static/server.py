@@ -42,11 +42,11 @@ class RequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def handle_error(self, msg):
         '''Handle error msg and return a Error_Page.'''
         content = self.Error_Page.format(path=self.path, msg=msg)
-        self.send_content(content)
+        self.send_content(content, 404)
 
-    def send_content(self, page):
+    def send_content(self, page, status=200):
         '''Send response to client.'''
-        self.send_response(200)
+        self.send_response(status)
         self.send_header("Content-Type", "text/html")
         self.send_header("Content-Length", str(len(page)))
         self.end_headers()
